@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51210326-4f17-4ef8-8b81-128c69d7f993">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="19"/>
+	<scriptlet name="scriptlet1" class="net.sf.jasperreports.engine.JRDefaultScriptlet"/>
+	<parameter name="repid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     details.`RepId` AS details_RepId,
+     details.`Date` AS details_Date,
+     details.`InvoiceNo` AS details_InvoiceNo,
+     details.`Customer` AS details_Customer,
+     details.`Route` AS details_Route,
+     details.`Amount` AS details_Amount,
+     reps.`RepId` AS reps_RepId,
+     reps.`RepName` AS reps_RepName,
+     reps.`Phone` AS reps_Phone,
+     reps.`Type` AS reps_Type,
+     reps.`Total` AS reps_Total
+FROM
+     `reps` reps INNER JOIN `details` details ON reps.`RepId` = details.`RepId` WHERE details.`RepId` = $P{repid}]]>
+	</queryString>
+	<field name="details_RepId" class="java.lang.Integer"/>
+	<field name="details_Date" class="java.sql.Date"/>
+	<field name="details_InvoiceNo" class="java.lang.Integer"/>
+	<field name="details_Customer" class="java.lang.String"/>
+	<field name="details_Route" class="java.lang.String"/>
+	<field name="details_Amount" class="java.math.BigDecimal"/>
+	<field name="reps_RepId" class="java.lang.Integer"/>
+	<field name="reps_RepName" class="java.lang.String"/>
+	<field name="reps_Phone" class="java.lang.String"/>
+	<field name="reps_Type" class="java.lang.String"/>
+	<field name="reps_Total" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="197" y="47" width="48" height="23" uuid="5c34c995-c19e-429f-9c21-81c41dbb55a9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial Rounded MT Bold" size="11"/>
+				</textElement>
+				<text><![CDATA[REP - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="37" uuid="a93e3f16-81ec-41cb-9110-acfe65c3f636"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="30" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RIYAN CREDIT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="245" y="47" width="279" height="20" uuid="4b5ed179-e0b8-4a65-a87d-faf008a6f1bd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reps_RepName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="9" width="64" height="32" uuid="ca0229a5-dc96-419b-9c11-10f1b3a6bce2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="15"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="9" width="98" height="32" uuid="6cac55f0-6240-4aa9-b39a-f467e44262c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="15"/>
+				</textElement>
+				<text><![CDATA[Route]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="118" y="9" width="61" height="32" uuid="20c9b81d-3835-4357-9450-f5b04415ef0b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="15"/>
+				</textElement>
+				<text><![CDATA[Inv No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="9" width="87" height="32" uuid="fca2262e-787b-47bb-bf2a-e5dc783ab4c4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="15"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="10" width="140" height="32" uuid="0f09a967-8cc5-4684-8d0c-0d871849e4a0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="15"/>
+				</textElement>
+				<text><![CDATA[Customer]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="8" width="550" height="1" uuid="6d6a45c4-6003-4203-9981-f6d6a2bd6841"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="3" y="42" width="550" height="1" uuid="144f50b8-0c60-4514-bb8b-4a2b303e1e14"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="43" y="30" width="100" height="20" uuid="9a052b5b-9355-4274-950e-a0be83b92656"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="4" y="1" width="91" height="19" uuid="61b41580-f09d-45f5-8d00-edc9126d1e19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{details_Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="1" width="61" height="19" uuid="1a7b825f-3f55-41dc-967c-e34ac0bf0dd3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{details_InvoiceNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="1" width="140" height="19" uuid="a3c5feb3-2117-469d-b121-99cc034caa11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{details_Customer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="1" width="98" height="19" uuid="fa0ea5d7-f4fd-41be-b274-aa9a9be8f9b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{details_Route}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="0" width="91" height="19" uuid="90dffd52-e4df-4d8d-b4fa-82c3395e2145"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{details_Amount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="4" y="26" width="546" height="1" uuid="96f37f84-9fa2-4be9-a85d-f2bcf21e6c41"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="12" width="555" height="24" uuid="308c8c47-1d3c-4272-a31b-80b2c566b635"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="15"/>
+				</textElement>
+				<text><![CDATA[System By - Evon Apps ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="35" width="553" height="16" uuid="43df5a68-718a-49d3-ae3d-6bdad08e8713"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Contact - 076 6 324 349  |  evon.customer@gmail.com ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="4" y="3" width="546" height="1" uuid="9fd99dba-ab9a-4b4e-ba3f-82c9ac5a94dc"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement x="189" y="36" width="173" height="29" uuid="3cd9fe7a-33d1-455a-a304-82a4314d2a56"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black" size="15"/>
+				</textElement>
+				<text><![CDATA[TOTAL AMOUNT - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="36" width="28" height="29" uuid="eb5466c1-c2cd-4bf0-bf7e-45995759777b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Rs .]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="415" y="36" width="135" height="29" uuid="2d41889c-83f6-4a0b-9f81-345d9d13ac4c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reps_Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
